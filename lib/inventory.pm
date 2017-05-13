@@ -60,7 +60,7 @@ get '/' => sub {
     my $testdata = $test-> fetchall_hashref('room_id');
 
     my $timestamp = localtime();
-    template index => { timestamp => $timestamp, test => $testdata, };
+    template index => { timestamp => $timestamp, testdata => $testdata, };
 };
 
 post '/' => sub {
