@@ -24,7 +24,9 @@ sub init_db{
   eval { $dbh->do("DROP TABLE rooms") };
   $dbh->do("CREATE TABLE rooms (room_id INTEGER not null auto_increment, room_name VARCHAR(20),capacity INTEGER, hastv BOOLEAN, PRIMARY KEY (room_id) )");
   $dbh->prepare("INSERT INTO rooms (room_name, capacity, hastv) VALUES (?, ?, ?)");
-  $dbh->execute('Skytest', '6', '1');
+  $dbh->execute('Sky', '6', '1');
+  $dbh->execute('Giraffe', '10', '1');
+  $dbh->execute('Ground', '3', '0');
   # $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
   # $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
 };

@@ -25,6 +25,7 @@ Email:
     <td>[% testdata.$room_id.room_id %]</td>
     <td>[% testdata.$room_id.room_name %]</td>
     <td>[% testdata.$room_id.capacity %]</td>
+    <td>[% testdata.$room_id.hastv %]</td>
   </tr>
   [% END %]
 </table>
