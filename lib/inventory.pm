@@ -48,18 +48,18 @@ get '/' => sub {
     eval { $dbh->prepare("SELECT * FROM rooms")->execute() };
     init_db($dbh) if $@;
 
-    my $sth = $dbh->prepare("SELECT * FROM foo");
-    $sth->execute();
+    # my $sth = $dbh->prepare("SELECT * FROM foo");
+    # $sth->execute();
 
-    my $data = $sth->fetchall_hashref('id');
-    $sth->finish();
+    # my $data = $sth->fetchall_hashref('id');
+    # $sth->finish();
 
     my $test = $dbh->prepare("SELECT * FROM rooms");
     $test->execute();
     my $testdata = $test-> fetchall_hashref('room_id');
 
     my $timestamp = localtime();
-    template index => {data => $data, timestamp => $timestamp, test => $testdata, };
+    template index => { timestamp => $timestamp, test => $testdata, };
 };
 
 post '/' => sub {

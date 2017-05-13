@@ -18,13 +18,7 @@ Email:
     <th>name</th>
     <th>email</th>
   </tr>
-  [% FOREACH id IN data.keys.nsort %]
-  <tr>
-    <td>[% data.$id.id %]</td>
-    <td>[% data.$id.name %]</td>
-    <td>[% data.$id.email %]</td>
-  </tr>
-  [% END %]
+
 
   [% FOREACH room_id IN testdata.keys.nsort %]
   <tr>
