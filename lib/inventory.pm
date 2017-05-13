@@ -57,12 +57,12 @@ get '/' => sub {
     # my $data = $sth->fetchall_hashref('id');
     # $sth->finish();
 
-    my $test = $dbh->prepare("SELECT * FROM rooms");
-    $test->execute();
-    my $testdata = $test-> fetchall_hashref('room_id');
+    my $rooms = $dbh->prepare("SELECT * FROM rooms");
+    $rooms->execute();
+    my $roomsdata = $rooms-> fetchall_hashref('room_id');
 
     my $timestamp = localtime();
-    template index => { timestamp => $timestamp, testdata => $testdata, };
+    template index => { timestamp => $timestamp, rooms => $roomsdata, };
 };
 
 post '/' => sub {

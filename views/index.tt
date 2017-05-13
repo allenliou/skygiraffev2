@@ -1,6 +1,16 @@
 Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 <br>
 <br>
+
+<select name="rooms">
+  [% FOREACH room_id IN rooms.keys.nsort %]
+  <option value="rooms.$room_id.room_id">rooms.$room_id.room_id</option>
+  [% END %]
+</select>
+
+
+<br>
+<br>
 <form action="/" method="post">
 Name:
 <input type="text" name="name">
@@ -19,12 +29,5 @@ Email:
   </tr>
 
 
-  [% FOREACH room_id IN testdata.keys.nsort %]
-  <tr>
-    <td>[% testdata.$room_id.room_id %]</td>
-    <td>[% testdata.$room_id.room_name %]</td>
-    <td>[% testdata.$room_id.capacity %]</td>
-    <td>[% testdata.$room_id.hastv %]</td>
-  </tr>
-  [% END %]
+
 </table>
