@@ -22,7 +22,8 @@ sub init_db{
   my $dbh = $_[0];
 
   eval { $dbh->do("DROP TABLE foo") };
-
+  $dbh->do("CREATE TABLE rooms (room_id INTEGER not null auto_increment, room_name VARCHAR(20),capacity INTEGER, hastv BOOLEAN, PRIMARY KEY (room_id) )");
+  $dbh->do("INSERT INTO rooms (room_name, capacity, hastv) VALUES (" . $dbh->quote("Sky") . ", " . $dbh->quote(6) . ", " . $dbh->quote("true")")");
   $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
   $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
 };
@@ -53,9 +54,12 @@ get '/' => sub {
     my $data = $sth->fetchall_hashref('id');
     $sth->finish();
 
+    my $test = $dbh->prepare("SELECT * FROM rooms");
+    $test->execute();
+    my $testdata = $test-> fetchall_hashref('room_id');
+
     my $timestamp = localtime();
-    my $test = "hello world";
-    template index => {data => $data, timestamp => $timestamp, test => $test};
+    template index => {data => $data, timestamp => $timestamp, test => $testdata, };
 };
 
 post '/' => sub {

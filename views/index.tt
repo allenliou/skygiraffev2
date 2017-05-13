@@ -25,4 +25,12 @@ Email:
     <td>[% data.$id.email %]</td>
   </tr>
   [% END %]
+
+  [% FOREACH room_id IN testdata.keys.nsort %]
+  <tr>
+    <td>[% testdata.$room_id.room_id %]</td>
+    <td>[% testdata.$room_id.room_name %]</td>
+    <td>[% testdata.$room_id.capacity %]</td>
+  </tr>
+  [% END %]
 </table>
