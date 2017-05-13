@@ -21,11 +21,11 @@ sub init_db{
 
   my $dbh = $_[0];
 
-  eval { $dbh->do("DROP TABLE foo") };
+  eval { $dbh->do("DROP TABLE rooms") };
   $dbh->do("CREATE TABLE rooms (room_id INTEGER not null auto_increment, room_name VARCHAR(20),capacity INTEGER, hastv BOOLEAN, PRIMARY KEY (room_id) )");
   $dbh->do("INSERT INTO rooms (room_name, capacity, hastv) VALUES (" . $dbh->quote("Sky") . ", " . $dbh->quote(6) . ", " . $dbh->quote(1) . ")");
-  $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
-  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
+  # $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
+  # $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
 };
 
 get '/user/:id' => sub {
@@ -45,7 +45,7 @@ get '/' => sub {
 
     my $dbh = get_connection();
 
-    eval { $dbh->prepare("SELECT * FROM foo")->execute() };
+    eval { $dbh->prepare("SELECT * FROM rooms")->execute() };
     init_db($dbh) if $@;
 
     my $sth = $dbh->prepare("SELECT * FROM foo");
