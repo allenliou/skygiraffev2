@@ -23,7 +23,7 @@ sub init_db{
 
   eval { $dbh->do("DROP TABLE foo") };
   $dbh->do("CREATE TABLE rooms (room_id INTEGER not null auto_increment, room_name VARCHAR(20),capacity INTEGER, hastv BOOLEAN, PRIMARY KEY (room_id) )");
-  $dbh->do("INSERT INTO rooms (room_name, capacity, hastv) VALUES (" . $dbh->quote("Sky") . ", " . $dbh->quote(6) . ", " . $dbh->quote("true") . ")");
+  $dbh->do("INSERT INTO rooms (room_name, capacity, hastv) VALUES (" . $dbh->quote("Sky") . ", " . $dbh->quote(6) . ", " . $dbh->quote(1) . ")");
   $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
   $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
 };
