@@ -1,8 +1,9 @@
 Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 <br>
+[% test %]
 <br>
 <form action="/" method="post">
-Name: 
+Name:
 <input type="text" name="name">
 <br>
 Email:

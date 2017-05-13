@@ -54,7 +54,8 @@ get '/' => sub {
     $sth->finish();
 
     my $timestamp = localtime();
-    template index => {data => $data, timestamp => $timestamp};
+    my $test = "hello world";
+    template index => {data => $data, timestamp => $timestamp, test => $test};
 };
 
 post '/' => sub {
@@ -63,7 +64,7 @@ post '/' => sub {
    my $email = params->{email};
 
    my $dbh = get_connection();
-   
+
    $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote($name) . ", " . $dbh->quote($email) . ") ");
 
    my $sth = $dbh->prepare("SELECT * FROM foo");
