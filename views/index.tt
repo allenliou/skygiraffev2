@@ -2,9 +2,9 @@ Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 <br>
 <br>
 
-<select name="rooms">
+<select name="room">
   [% FOREACH room_id IN rooms.keys.nsort %]
-  <option value="[% rooms.$room_id.room_id %]">[% rooms.$room_id.room_id %]</option>
+  <option value="[% rooms.$room_id.room_name %]">[% rooms.$room_id.room_name %]</option>
   [% END %]
 </select>
 
