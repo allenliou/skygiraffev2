@@ -65,6 +65,10 @@ get '/' => sub {
     template index => { timestamp => $timestamp, rooms => $roomsdata, };
 };
 
+post '/test' => sub {
+  template pick => {timestamp => $timestamp,}; 
+}
+
 post '/' => sub {
 
    my $name = params->{name};
