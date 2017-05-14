@@ -4,6 +4,7 @@ use Dancer2 ':script';
 use Template;
 use DBI;
 use DBD::mysql;
+use JSON;
 
 set template => 'template_toolkit';
 set layout => undef;
@@ -83,9 +84,10 @@ post '/pick' => sub {
       $timeHash{$i} .= ":00";
     }
   }
-
+  my $timeJSON = to_json(%timeHash;)
+  printf("console test?");
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => %timeHash};
+  template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => $timeJSON};
 };
 
 post '/' => sub {
