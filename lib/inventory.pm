@@ -70,10 +70,10 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=" . $dbh->quote($roomName) . "");
+  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=\"Sky\"");
   $sql->execute();
   my $roomId = $sql->fetchall_hashref('room_id');
-
+  console.log("testing log");
 
   my %timeHash;
   for(my $i = 0; $i < 48; $i++){
