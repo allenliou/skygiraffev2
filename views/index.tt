@@ -4,10 +4,11 @@ Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 
 
   <p>Select Room</p>
+<form action ="/test" method="post">
     [% FOREACH room_id IN rooms.keys.nsort %]
-    <button action ="/test" method="post" type="button" value="[% rooms.$room_id.room_name %]">[% rooms.$room_id.room_name %]</button>
+    <input type="submit" name="button" value="[% rooms.$room_id.room_name %]">[% rooms.$room_id.room_name %]</button>
     [% END %]
-
+</form>
 
 
 
