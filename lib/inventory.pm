@@ -66,6 +66,7 @@ get '/' => sub {
 };
 
 post '/test' => sub {
+  my $timestamp = localtime();
   template pick => {timestamp => $timestamp,}; 
 }
 
