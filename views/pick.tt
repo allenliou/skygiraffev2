@@ -6,7 +6,7 @@ roomid is [% roomId.$room_id %]
 <br>
 or roomid is [% roomId.$room_id.room_id %]
 roomid is [% roomId.room_id.room_id %]
-
+<p>test</p>
     [% FOREACH i IN timeHash.keys.nsort %]
-    <p>[% timeHash.$i %]</p>
+    <p>[% timeHash.$i %]this is a test, time should go here</p>
     [% END %]
