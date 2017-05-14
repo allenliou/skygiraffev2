@@ -1,3 +1,5 @@
 testing redirect  It is currently [% timestamp %]
+
 <br>
+room is [% roomName %]
 <br>
