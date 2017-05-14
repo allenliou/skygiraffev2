@@ -7,7 +7,7 @@ Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 
 <a href="/test" name="Sky">Visit our HTML tutorial</a>
 
-<form action ="/pick" method="get">
+<form action ="/pick" method="post">
   <select name="roomSelect">
     [% FOREACH room_id IN rooms.keys.nsort %]
     <option value="[% rooms.$room_id.room_name %]">
