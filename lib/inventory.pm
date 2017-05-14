@@ -74,8 +74,6 @@ post '/pick' => sub {
   $sql->execute($roomName);
   my $roomId = $sql->fetchall_hashref('room_id');
 
-  # my $sql = $dbh->prepare("SELECT * FROM bookings WHERE room_id=? AND date=?");
-  # $sql->execute($roomId, date);
 
   my %timeHash;
   for(my $i = 0; $i < 48; $i++){
