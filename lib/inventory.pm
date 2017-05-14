@@ -69,7 +69,7 @@ get '/test' => sub {
   # my $roomName = params->{button};
   #
   # my $timestamp = localtime();
-  template pick;
+  template 'pick';
 };
 
 post '/' => sub {
