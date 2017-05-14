@@ -2,10 +2,10 @@ testing redirect  It is currently [% timest %]
 
 <br>
 room is [% roomName %]
-roomid is [% roomId.$room_id %]
+roomid is [% room.$room_name %]
 <br>
-or roomid is [% roomId.$room_id.room_id %]
-roomid is [% roomId.room_id.room_id %]
+or roomid is [% room.$room_id.room_name %]
+roomid is [% room.room_id.room_name %]
 
 [% FOREACH room_id IN room.keys.nsort %]
 <option value="[% room.$room_id.room_name %]">[% room.$room_id.room_name %]</option>

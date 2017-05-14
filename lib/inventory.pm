@@ -70,7 +70,7 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT * FROM rooms ");
+  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=\"$roomName\"");
   $sql->execute();
   my $roomId = $sql->fetchall_hashref('room_id');
 
