@@ -70,16 +70,25 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT room_id FROM rooms WHERE room_name=\"?\"");
+  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=?);
   $sql->execute($roomName);
   my $roomId = $sql->fetchall_hashref('room_id');
 
-  # my $sql = $dbh->prepare("SELECT * FROM bookings WHERE room_id=? AND date="?");
+  # my $sql = $dbh->prepare("SELECT * FROM bookings WHERE room_id=? AND date=?");
   # $sql->execute($roomId, date);
 
+  my %timeHash;
+  for(my $i = 0; $i < 48; $i++){
+    $timeHash{$i} = "$i/2";
+    if (($i%2) == 1){
+      $timeHash{$i} .= ":30";
+    } else {
+      $timeHash{$i} .= ":00";
+    }
+  }
 
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId};
+  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId, timeHash => $timeHash};
 };
 
 post '/' => sub {
