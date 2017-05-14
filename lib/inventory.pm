@@ -86,7 +86,7 @@ post '/pick' => sub {
   }
 
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId, timeHash => $timeHash};
+  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId, timeHash => %timeHash};
 };
 
 post '/' => sub {
