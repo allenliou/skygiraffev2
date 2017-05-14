@@ -4,7 +4,7 @@ use Dancer2 ':script';
 use Template;
 use DBI;
 use DBD::mysql;
-use JSON;
+use Data::Dumper;
 
 set template => 'template_toolkit';
 set layout => undef;
@@ -75,19 +75,20 @@ post '/pick' => sub {
   $sql->execute();
   my $roomId = $sql->fetchall_hashref('room_id');
 
-  my %timeHash;
+  my $timeHash = "\$VAR1 = {";
   for(my $i = 0; $i < 48; $i++){
-    $timeHash{$i} = "$i/2";
+    $timeHash .= "'$i' => $i/2";
     if (($i%2) == 1){
-      $timeHash{$i} .= ":30";
+      $timeHash .= ":30,";
     } else {
-      $timeHash{$i} .= ":00";
+      $timeHash .= ":00,";
     }
   }
+  $timeHash .= "};"
   my $timeJSON = to_json(%timeHash;)
   printf("console test?");
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => $timeJSON};
+  template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => $timeHash};
 };
 
 post '/' => sub {
