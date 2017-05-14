@@ -68,8 +68,8 @@ get '/' => sub {
 post '/test' => sub {
   my $roomName = params->{roomSelect};
   #
-  my $time = localtime();
-  template pick => {time = $time, roomName = $roomName};
+  my $timest = localtime();
+  template pick => {timest = $timest, roomName = $roomName};
 };
 
 post '/' => sub {
