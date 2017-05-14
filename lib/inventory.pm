@@ -65,7 +65,7 @@ get '/' => sub {
     template index => { timestamp => $timestamp, rooms => $roomsdata, };
 };
 
-post '/test' => sub {
+post '/pick' => sub {
   my $roomName = params->{roomSelect};
   #
   my $timest = localtime();
