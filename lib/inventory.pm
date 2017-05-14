@@ -84,8 +84,7 @@ post '/pick' => sub {
       $timeHash .= ":00,";
     }
   }
-  $timeHash .= "};"
-  my $timeJSON = to_json(%timeHash;)
+  $timeHash .= "};";
   printf("console test?");
   my $timest = localtime();
   template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => $timeHash};
