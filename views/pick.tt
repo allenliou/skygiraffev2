@@ -8,5 +8,5 @@ or roomid is [% roomId.$room_id.room_id %]
 roomid is [% roomId.room_id.room_id %]
 
     [% FOREACH i IN timeHash.keys.nsort %]
-    <p>[% timeHash.$i]</p>
+    <p>[% timeHash.$i %]</p>
     [% END %]
