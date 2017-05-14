@@ -2,5 +2,5 @@ testing redirect  It is currently [% timest %]
 
 <br>
 room is [% roomName %]
-roomid is [% roomId.roomId %]
+roomid is [% room.room_id %]
 <br>

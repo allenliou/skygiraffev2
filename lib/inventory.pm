@@ -72,7 +72,7 @@ post '/pick' => sub {
 
   my $sql = $dbh->prepare("SELECT room_id FROM rooms WHERE room_name=?");
   $sql->execute($roomName);
-  my $roomId = $sql->fetchall_hashref('room_id');
+  my $roomId = $sql->fetchall_hashref('room');
 
 
 
