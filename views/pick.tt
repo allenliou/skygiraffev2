@@ -2,6 +2,7 @@ testing redirect  It is currently [% timest %]
 
 <br>
 room is [% roomName %]
-roomid is [% room_id.$room_id %]
+roomid is [% roomId.$room_id %]
 <br>
-or roomid is [% room_id.room_id %]
+or roomid is [% roomId.room_id %]
+roomid is [% roomId.room_id.room_id %]
