@@ -70,7 +70,7 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=\"Sky\"");
+  my $sql = $dbh->prepare("SELECT * FROM rooms ");
   $sql->execute();
   my $roomId = $sql->fetchall_hashref('room_id');
 
@@ -85,7 +85,7 @@ post '/pick' => sub {
   }
 
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId, timeHash => %timeHash};
+  template pick => {timest => $timest, roomName => $roomName, room => $roomId, timeHash => %timeHash};
 };
 
 post '/' => sub {

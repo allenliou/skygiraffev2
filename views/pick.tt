@@ -6,6 +6,11 @@ roomid is [% roomId.$room_id %]
 <br>
 or roomid is [% roomId.$room_id.room_id %]
 roomid is [% roomId.room_id.room_id %]
+
+[% FOREACH room_id IN room.keys.nsort %]
+<option value="[% room.$room_id.room_name %]">[% room.$room_id.room_name %]</option>
+[% END %]
+
 <p>test</p>
     [% FOREACH i IN timeHash.keys.nsort %]
     <p>[% timeHash.$i %]this is a test, time should go here</p>
