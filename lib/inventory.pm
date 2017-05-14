@@ -67,9 +67,17 @@ get '/' => sub {
 
 post '/pick' => sub {
   my $roomName = params->{roomSelect};
-  #
+
+  my $dbh = get_connect();
+
+  my $sql = $dbh->prepare("SELECT room_id FROM rooms WHERE room_name=?");
+  $sql->execute($roomName);
+  my $roomId = $sql->fetchall_hashref('room_id');
+
+  
+
   my $timest = localtime();
-  template pick => {timest => $timest, roomName => $roomName};
+  template pick => {timest => $timest, roomName => $roomName, roomId => $roomId};
 };
 
 post '/' => sub {

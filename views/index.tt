@@ -10,7 +10,7 @@ Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
 <form action ="/pick" method="post">
   <select name="roomSelect">
     [% FOREACH room_id IN rooms.keys.nsort %]
-    <option value="[% rooms.$room_id.room_name %]">
+    <option value="[% rooms.$room_id.room_name %]">[% rooms.$room_id.room_name %]</option>
     [% END %]
   </select>
   <button type="submit">View Availability</button>
