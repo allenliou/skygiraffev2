@@ -70,10 +70,11 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT room_id FROM rooms WHERE room_name=?");
+  my $sql = $dbh->prepare("SELECT room_id FROM rooms WHERE room_name="?"");
   $sql->execute($roomName);
   my $roomId = $sql->fetchall_hashref('room_id');
 
+  # my $sql = $dhh->prepare("SELECT * FROM bookings where room_id=?"")
 
 
   my $timest = localtime();
