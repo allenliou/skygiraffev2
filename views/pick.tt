@@ -1,4 +1,4 @@
-testing redirect  It is currently [% timestamp %]
+testing redirect  It is currently [% timest %]
 
 <br>
 room is [% roomName %]
