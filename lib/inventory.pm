@@ -57,7 +57,7 @@ get '/' => sub {
     # my $data = $sth->fetchall_hashref('id');
     # $sth->finish();
 
-    my $rooms = $dbh->prepare("SELECT * FROM rooms");
+    my $rooms = $dbh->prepare("SELECT * FROM rooms ");
     $rooms->execute();
     my $roomsdata = $rooms-> fetchall_hashref('room_id');
 
@@ -70,7 +70,8 @@ post '/pick' => sub {
 
   my $dbh = get_connection();
 
-  my $sql = $dbh->prepare("SELECT * FROM rooms");
+  my $sql = $dbh->prepare("SELECT * FROM rooms WHERE room_name=" . $dbh->quote($name) . "");
+  $sql->execute();
   my $roomId = $sql->fetchall_hashref('room_id');
 
 
