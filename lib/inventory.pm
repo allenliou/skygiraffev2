@@ -67,8 +67,8 @@ get '/' => sub {
 
 post '/test' => sub {
   my $timestamp = localtime();
-  template pick => {timestamp => $timestamp,}; 
-}
+  template pick => {timestamp => $timestamp,};
+};
 
 post '/' => sub {
 
